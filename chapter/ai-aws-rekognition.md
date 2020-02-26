@@ -2,6 +2,10 @@
 
 :o2: bibtex missing
 
+:o2: spaces after context switch missing
+
+:o2: no : at end of headings
+
 ## Amazon Rekognition overview
 
 Amazon Rekognition is mainly used to include image and video analysis to your applications using highly scalable and deep learning technologies and you dont have to possess a machine learning expert to use it. With Amazon Rekognition, you can identify objects, people, text, scenes, and activities in images and videos, as well as detect any inappropriate content. Not only that - Amazon Rekognition also provides highly accurate facial analysis and facial search capabilities that you can use to detect, analyze, and compare faces for a wide variety of user verification, people counting, and public safety use cases.
