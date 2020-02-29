@@ -23,27 +23,35 @@ we have variety of key features with Amazon Rekognition and let us discuss the t
 7. Pathing.
 
 ## Labels
+
 Identifying objects (such as bike, telephone, building), and scenes (such as parking lot, beach, city) is easy using Amazon Rekognition. Also when analyzing video, you can identify specific activities such as "delivering a package" or "playing soccer".
 
 ## Custom labels
+
 As stated by its name *labels* finding corporate logo in social media, identify your products on store shelves, classify your machine parts in an assembly line, or detect your animated characters in videos.With Amazon Rekognition Custom Labels, you can extend the detection capabilities of Amazon Rekognition to extract information from images that is uniquely helpful to your business.
 
 ## Content moderation
+
 Amazon Rekognition helps you identify potentially unsafe or inappropriate content across both image and video assets and provides you with detailed labels that allow you to accurately control what you want to allow based on your needs.
 
-## Text detection:
+## Text detection
+
 This can be useful in many ways for exaomle in photos, text appears very differently than neat words on a printed page. Amazon Rekognition can read skewed and distorted text to capture information like store names, street signs, and text on product packaging.
 
-## Face detection and analysis:
+## Face detection and analysis
+
 With Amazon Rekognition, you can easily detect when faces appear in images and videos and get attributes such as gender, age range, eyes open, glasses, facial hair for each. In video, you can also measure how these face attributes change over time, such as constructing a timeline of the emotions expressed by an actor.
 
-## Face search and verification:
+## Face search and verification
+
 Although this face search an verification was in constant development with AWS recognition and by providing a fast and accurate face search, AWS recognition will allow you to identify a person in a photo or video using your private repository of face images. Not only that you can also verify identity by analyzing a face image against images you have stored for comparison.
 
-## Celebrity recognition:
+## Celebrity recognition
+
 Its an interesting use case used on variuos way. You can quickly identify well known people in your video and image libraries to catalog footage and photos for marketing, advertising, and media industry use cases. 
 
-## Pathing:
+## Pathing
+
 You can capture the path of people in the scene when using Amazon Rekognition with video files. For example, you can use the movement of athletes during a game to identify plays for post-game analysis. 
 
 
@@ -57,11 +65,12 @@ Rekognition Image uses deep neural network models to detect and label thousands 
 
 
 #### How many images are needed to train a custom model?
+
 we need to have variability of the custom labels and number of images required to train a custom model to predict and the quality of the training data. If you already have a high number of labeled images, we recommend training a model with as many images as you have available. Please refer to the documentation for limits on maximum training dataset size.For example, a distinct logo overlaid on an image can be detected with 1-2 training images, while a more subtle logo required to be detected under many variations (scale, viewpoint, deformations) may need in the order of tens to hundreds of training examples with high quality annotations. .
 
 You can always start with fewer images. For example - Although hundreds of images may sometimes be required to train a custom model with high accuracy, with Custom Labels you can first train a model with tens of images per label, review your test results to understand where it does not work, and accordingly add new training images and train again to iteratively improve your model.
 
-#### Different Facial Rekognition methods:
+#### Different Facial Rekognition methods
 
 ## 1. What is Facial Analysis?
 Facial analysis is the process of detecting a face within an image and extracting relevant face attributes from it. Amazon Rekognition Image takes returns the bounding box for each face detected in an image along with attributes such as gender, presence of sunglasses, and face landmark points. Rekognition Video will return the faces detected in a video with timestamps and, for each detected face, the position and a bounding box along with face landmark points. 
