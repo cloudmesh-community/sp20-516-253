@@ -70,8 +70,4 @@ Microsoft Azure, initially called Azure, was launched in 2010 with the intent to
 
 AWS as Pioneer in cloud is leading with around 30 percent of public cloud share in its name. Microsoft Azure is on the second place, owning around 16 percent of the worldwide market share. Google, on the third place, owns up to 10 percent of the market share worldwide.
 
-Even though AWS has an added advantage of being the first one of its kind, Azure and GCP also have their own set of strengths. Using Azure cloud makes more sense to several organizations that use MS tools since it’s easy to integrate MS tools with Azure cloud. And, GCP offering the best pricing model for the infrastructure, on which Google Search engine and YouTube run, is the only reason customers need to go for GCP
-
-## Reference
-
-@misc{intellipaat blog_2020, title={AWS vs Azure vs Google - Detailed Cloud Comparison}, url={https://intellipaat.com/blog/aws-vs-azure-vs-google-cloud/}, journal={Intellipaat Blog}, year={2020}, month={Feb}} 
+Even though AWS has an added advantage of being the first one of its kind, Azure and GCP also have their own set of strengths. Using Azure cloud makes more sense to several organizations that use MS tools since it’s easy to integrate MS tools with Azure cloud. And, GCP offering the best pricing model for the infrastructure, on which Google Search engine and YouTube run, is the only reason customers need to go for GCP.
