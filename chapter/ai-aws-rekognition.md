@@ -79,7 +79,7 @@ Facial analysis is the process of detecting a face within an image and extractin
 Face Comparison is the process of comparing one face to one or more faces to measure similarity. Using the CompareFaces API, Amazon Rekognition Image lets you measure the likelihood that faces in two images are of the same person. The API compares a face in the source input image with each face detected in the target input image and returns a similarity score for each comparison. You also get a bounding box and confidence score for each face detected. You can use face comparison to verify a person’s identity against their personnel photo on file in near real-time. 
 
 ## 3.What is Facial Recognition?
-Facial recognition is the process of identifying or verifying a person’s identity by searching for their face in a collection of faces. Using facial recognition, you can easily build applications such as multi-factor authentication for bank payments, automated building entry for employees, and more. Missing image?
+Facial recognition is the process of identifying or verifying a person’s identity by searching for their face in a collection of faces. Using facial recognition, you can easily build applications such as multi-factor authentication for bank payments, automated building entry for employees, and more.
 
 
 
