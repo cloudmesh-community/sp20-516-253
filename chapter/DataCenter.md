@@ -6,7 +6,7 @@ Cloud is an off-premise form of computing. It accumulates data on the Internet. 
 
 Data center and cloud, both can serve as the storage of a large amount of data. Fundamnetal differences between a data center and a cloud storage are below:
 
-Cloud:
+Cloud
 
     Cloud is an off-premise form of computing.
     Cloud resources will be shared with the other users of the same provider, if the private cloud is not used.
@@ -14,15 +14,17 @@ Cloud:
     Cloud services are run by general cloud servers.
     Cloud-based resources need to be housed in data centers.
 
-Data Center:
+Data Center
 
-    A data center is an on-premise hardware.
-    Data center is a fully secured program without the intrusion of any third party.
-    It accumulates data within the local network of an organization.
-    Data centers are run by in-house technological departments.
-    Data center has the capacity of storing servers.
+A data center is an on-premise hardware.
+Data center is a fully secured program without the intrusion of any third party.
+It accumulates data within the local network of an organization.
+Data centers are run by in-house technological departments.
+Data center has the capacity of storing servers.
 
 A typical data center is fully redundant with power, power backup, cooling solutions, safety devices and individual personnel to maintain and manage the infrastructure. It has limited capacity and can only be increased by purchasing and installing hardware equipment. Businesses using a third-party data center can have huge savings on power costs and are saved from purchasing the expensive infrastructure
+
+   
 
 ### Customizable vs. scalable
 
@@ -70,8 +72,6 @@ AWS as Pioneer in cloud is leading with around 30 percent of public cloud share 
 
 Even though AWS has an added advantage of being the first one of its kind, Azure and GCP also have their own set of strengths. Using Azure cloud makes more sense to several organizations that use MS tools since it’s easy to integrate MS tools with Azure cloud. And, GCP offering the best pricing model for the infrastructure, on which Google Search engine and YouTube run, is the only reason customers need to go for GCP
 
-
-
 ## Reference
 
-* <https://intellipaat.com/blog/aws-vs-azure-vs-google-cloud/>
+@misc{intellipaat blog_2020, title={AWS vs Azure vs Google - Detailed Cloud Comparison}, url={https://intellipaat.com/blog/aws-vs-azure-vs-google-cloud/}, journal={Intellipaat Blog}, year={2020}, month={Feb}} 
