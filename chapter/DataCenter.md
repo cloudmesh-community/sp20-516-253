@@ -8,11 +8,11 @@ Data center and cloud, both can serve as the storage of a large amount of data. 
 
 Cloud
 
-    Cloud is an off-premise form of computing.
-    Cloud resources will be shared with the other users of the same provider, if the private cloud is not used.
-    t accumulates data on the Internet.
-    Cloud services are run by general cloud servers.
-    Cloud-based resources need to be housed in data centers.
+Cloud is an off-premise form of computing.
+Cloud resources will be shared with the other users of the same provider, if the private cloud is not used.
+It accumulates data on the Internet.
+Cloud services are run by general cloud servers.
+Cloud-based resources need to be housed in data centers.
 
 Data Center
 
