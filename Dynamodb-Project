@@ -1,0 +1,146 @@
+#creating the kinesis stream
+import boto3
+
+client = boto3.client('kinesis')
+response = client.create_stream(
+   StreamName='Cloudmesh_bigdata', #your streamname here
+   ShardCount=1
+)
+
+#importing the necessary packages
+from TwitterAPI import TwitterAPI
+import json
+import boto3
+#import twitterCreds
+
+
+#accessing the API
+api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
+
+kinesis = boto3.client('kinesis')
+
+r = api.request('statuses/filter', {'follow':'629747990'})
+
+#for locations
+#r = api.request('statuses/filter', {'locations':'-90,-90,90,90'})
+#for userids @abcdef:
+#r = api.request('statuses/filter', {'follow':'123456'})
+#for general text searches
+#r = api.request('statuses/filter', {'track':'iphone'})
+
+
+
+for item in r:
+    kinesis.put_record(StreamName="twitter_bigdata", Data=json.dumps(item), PartitionKey="filler")
+    
+import boto3
+import time
+import json
+## aws creds are stored in ~/.boto
+kinesis = boto3.client("kinesis")
+shard_id = "shardId-000000000000" #only one shard!
+pre_shard_it = kinesis.get_shard_iterator(StreamName="twitter_bigdata", ShardId=shard_id, ShardIteratorType="TRIM_HORIZON")
+shard_it = pre_shard_it["ShardIterator"]
+while 1==1:
+     out = kinesis.get_records(ShardIterator=shard_it, Limit=1)
+     shard_it = out["NextShardIterator"]
+     print out;
+     time.sleep(1.0)
+     
+     
+     
+     
+ Real Time Processing - Part 2
+Using a DynamoDB table to capture specific tweet aspects from Kinesis
+This notebook provides the necessary code to create a dynamoDB table, with the hashtag as the partition key (Primary Key).
+Creating the DynamoDB table, with the hashtag as the primary key. Read and Write capacity provisioning is kept low. The boto3 library is used to interface to Jupyter
+
+## create a table to store twitter hashtags in DynamoDB
+import boto3
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.create_table(
+    TableName='hashtags',
+    KeySchema=[
+        {
+            'AttributeName': 'hashtag',
+            'KeyType': 'HASH'
+        }
+    ],
+    AttributeDefinitions=[
+        {
+            'AttributeName': 'hashtag',
+            'AttributeType': 'S'
+        }
+    ],
+    # the pricing isdetermined by Provisioned Throughput, thus it is kept low
+    ProvisionedThroughput={
+        'ReadCapacityUnits': 100,
+        'WriteCapacityUnits': 100
+    }
+)
+table.meta.client.get_waiter('table_exists').wait(TableName='hashtags')
+
+Linking the Kinesis stream to DynamoDB, parsing and storing tweets
+Parsing the results from Kinesis in JSON , extracting the hashtag and submitting the input into table.update_item(…). The table.update_item is a larger request in JSON to increment by 1 if it exists, and put 1 otherwise (not increment).
+
+Thus the hashtag counter increases by 1 each time it detects the hashtag associated with it (for every tweet)
+
+
+## Importing the necessary libraries
+
+import time
+import json
+import decimal
+
+#Connecting to the kinesis stream-need to specify kinesis stream here
+kinesis = boto3.client("kinesis")
+shard_id = 'shardId-000000000000' #only one shard
+shard_it = kinesis.get_shard_iterator(StreamName="twitter_bigdata", ShardId=shard_id, ShardIteratorType="TRIM_HORIZON")["ShardIterator"]
+
+#connecting to the dynamoDB table
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('hashtags')
+
+
+#Parsing the tweets and setting a counter
+
+while 1==1:
+    out = kinesis.get_records(ShardIterator=shard_it, Limit=100)
+    for record in out['Records']:
+        if 'entities' in json.loads(record['Data']):
+            htags = json.loads(record['Data'])['entities']['hashtags']
+            if htags:
+                    for ht in htags:
+                        htag = ht['text']
+                        checkItemExists = table.get_item(
+                           Key={
+                                        'hashtag':htag
+                                }
+                            )
+                    if 'Item' in checkItemExists:
+                        response = table.update_item(
+                                Key={
+                                    'hashtag': htag 
+                            }, #updating the counter if hashtags exists
+                            UpdateExpression="set htCount  = htCount + :val",
+                            ConditionExpression="attribute_exists(hashtag)",
+                            ExpressionAttributeValues={
+                                ':val': decimal.Decimal(1) 	
+                            },
+                            ReturnValues="UPDATED_NEW"
+                        )
+                    else: #not updating the counter if hashtags not exist
+                                        response = table.update_item(
+                                                Key={
+                                                        'hashtag': htag
+                                                },
+                                                UpdateExpression="set htCount = :val",
+                                                ExpressionAttributeValues={
+                                                        ':val': decimal.Decimal(1)
+                                                },
+                                                ReturnValues="UPDATED_NEW"
+                                        )    
+    shard_it = out["NextShardIterator"]
+    time.sleep(1.0)
+    
+    
