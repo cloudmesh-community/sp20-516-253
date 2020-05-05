@@ -1,31 +1,15 @@
 #!/usr/bin/env python
-# coding: utf-8
 
-# In[1]:
-
-
-
-
-
-# In[60]:
 
 
 get_ipython().system('pip install TwitterAPI')
 
 
-# In[75]:
-
-
 get_ipython().system('pip uninstall twitter -y')
-
-
-# In[76]:
 
 
 get_ipython().system('pip install python-twitter')
 
-
-# In[61]:
 
 
 #creating the kinesis stream
