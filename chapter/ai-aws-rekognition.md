@@ -1,10 +1,5 @@
 # AWA Rekognition sp20-516-253, Arivukadal, Lenin
 
-:o2: bibtex missing
-
-:o2: spaces after context switch missing
-
-:o2: no : at end of headings
 
 ## Amazon Rekognition overview
 
