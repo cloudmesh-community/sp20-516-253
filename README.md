@@ -21,6 +21,10 @@ Validate that the application works.
 #### Architecture of workflow2 in AWS(Deleting Tweets and storing in S3)
 ![Architecture Diagram](images/StoringDeletedTweetss3.png)
 
+#### AWS-Dynamodb-RealtimeStreaming Project Implementation Demo Video
+
+![Download the video](images/Lenin-DynamoDB-Realtimestreaming-Twitterdata.mp4)
+
 
 #### What is AWS Dynamodb?
 AWS DynamoDB is a is a key-value and document database that delivers single-digit millisecond performance at any scale.
