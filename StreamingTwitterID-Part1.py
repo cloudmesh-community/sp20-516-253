@@ -43,14 +43,14 @@ api = twitter.Api(consumer_key, consumer_secret, access_token_key, access_token_
 #r = api.request()
 
 #for locations
-#r = api.request('statuses/filter', {'locations':'-90,-90,90,90'})
+r = api.request('statuses/filter', {'locations':'-90,-90,90,90'})
 #for userids @abcdef:
 #r = api.request('statuses/filter', {'follow':'123456'})
 #for general text searches
 #r = api.request('statuses/filter', {'track':'iphone'})
 #r = api.request('user', {'screen_name':'realDonaldTrump'})
 
-r = api.GetUserTimeline(screen_name="akras14", count=10)
+#r = api.GetUserTimeline(screen_name="akras14", count=10)
 
 
 
