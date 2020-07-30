@@ -1,6 +1,6 @@
 # AWS Rekognition 
 
-Lenin Arivukadal, sp20-516-253, 
+Lenin Arivukadal, sp20-516-253
 
 ## Amazon Rekognition overview
 
